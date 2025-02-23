@@ -43,22 +43,24 @@
 </head>
 <body>
 
+<script> 
 
+// পেজটি iframe এর মধ্যে আছে কিনা চেক করা
 function checkIfInIframe() {
     try {
-        
+        // window.self এবং window.top এর রেফারেন্স তুলনা করা
         return window.self !== window.top;
     } catch (e) {
-        
+        // যদি security error হয়, তবে এটি iframe এ আছে
         return true;
     }
 }
 
-
+// পেজ লোড হওয়ার সময় চেক করা
 window.onload = function() {
     if (!checkIfInIframe()) {
-        
-        document.body.innerHTML = '<h1>content not found </h1>';
+        // যদি iframe এ না থাকে
+        document.body.innerHTML = '<h1>এই পেজটি শুধুমাত্র iframe এর মধ্যে দেখা যাবে</h1>';
         document.body.style.backgroundColor = '#ffebee';
         document.body.style.textAlign = 'center';
         document.body.style.padding = '20px';
@@ -66,7 +68,11 @@ window.onload = function() {
         // অথবা রিডাইরেক্ট করতে চাইলে
         // window.location.href = 'error.html';
     }
-}
+            }
+    
+    
+</script>
+
     
     
     <div class="container">
